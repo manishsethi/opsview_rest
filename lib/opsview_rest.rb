@@ -104,6 +104,18 @@ class OpsviewRest
     end
   end
 
+  def get_graph(options = {})
+    require 'time'
+    options = {
+      :hsm => nil,
+      :start => nil,
+      :end => Time.now.to_i,
+    }.update options
+
+    get("graph?hsm=#{options[:hsm]}&start=#{options[:start]}&end=#{options[:end]}")
+    #get("graph?host=#{options[:host]}")
+  end
+
   def purge(options = {})
     options = {
       :type => "host",

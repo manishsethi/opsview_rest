@@ -10,7 +10,7 @@ class OpsviewRest
     def initialize(opsview, options = {})
       @options = {
         :name => "ping",
-        :args => "-H $HOSTADDRESS$ -t 3 -w 500.0,80% -c 1000.0,100%",
+        :args => "-H $HOSTADDRESS$ -t 3 -w 500.0,443% -c 1000.0,100%",
         :priority => 1,
         :plugin => "check_icmp",
         :uncommitted => false,

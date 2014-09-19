@@ -90,6 +90,11 @@ class OpsviewRest
     get("reload")
   end
 
+  def initiate_reload
+    post("reload")
+  end
+
+
   def find(options = {})
     options = {
       :type => "host",

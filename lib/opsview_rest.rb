@@ -91,7 +91,7 @@ class OpsviewRest
   end
 
   def initiate_reload
-    post("reload")
+    post("reload", {})
   end
 
 

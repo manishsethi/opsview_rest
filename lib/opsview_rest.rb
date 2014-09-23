@@ -111,14 +111,17 @@ class OpsviewRest
   def purge(options = {})
     options = {
       :type => "host",
-      :name => nil
+      :name => nil,
+      :id => nil
     }.update options
 
     if options[:name].nil?
       raise ArgumentError, "Need to specify the name of the object."
+    elsif options[:id].nil?
+      raise ArgumentError, "Need to specify the ID of the object."
     else
-      id = find(:type => options[:type], :name => options[:name])[0]["id"]
-      delete("config/#{options[:type]}/#{id}")
+      #id = find(:type => options[:type], :name => options[:name])[0]["id"]
+      delete("config/#{options[:type]}/#{options[:id]}")
     end
   end
 
